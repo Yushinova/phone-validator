@@ -44,9 +44,9 @@ export function PhoneValidator(props) {
   }
     return(
       <div className="container-sm">
-          {/* форма для вычисления факториала */}
+          {/* форма валидатора*/}
           <form onSubmit={onFormSubmit}>
-              {/* поле ввода n */}
+              {/* поле ввода телефона */}
               <label htmlFor="phone" className="form-label">Введите номер телефона:</label>
               <input type="tel" id="phone" required ref={nRef}
               className="form-control" placeholder="+X(XXX)XXX-XX-XX" style={styles}/>
