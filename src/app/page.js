@@ -2,6 +2,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useRef, useState, useEffect } from "react";
+import { validatePhone } from "./validator/validator";
 import 'bootstrap/dist/css/bootstrap.css';
 
 function PhoneValidator(props) {
@@ -15,16 +16,13 @@ function PhoneValidator(props) {
     width: "300px",
     marginBottom: "5px"
   };
-//функция проврки телефона
+//функция проверки телефона
 function validatePhoneNumber() {
-  const regex = /\+\d\(\d{3}\)\d{3}-\d{2}-\d{2}$/;
- let isValid = regex.test(nRef.current.value);
-  if(!isValid){
+  if(!validatePhone(nRef.current.value)){
     setResult("Не верный формат ввода! Пример ( +X(XXX)XXX-XX-XX )")
     return
   }
   setResult("Ввод верный")
-  console.log(isValid)
 }
 // инициализация изначального значения input
 useEffect(() => {
