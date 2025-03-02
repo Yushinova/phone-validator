@@ -10,7 +10,11 @@ function PhoneValidator(props) {
   let isStart=true;
   // инициалиазция state-ов
   let [result, setResult] = useState("");
-  
+  //стиль для формы
+  let styles = {
+    width: "300px",
+    marginBottom: "5px"
+  };
 //функция проврки телефона
 function validatePhoneNumber() {
   const regex = /\+\d\(\d{3}\)\d{3}-\d{2}-\d{2}$/;
@@ -26,6 +30,7 @@ function validatePhoneNumber() {
 useEffect(() => {
   // на момент срабатывания данного колбэка 
   // уже сработал return и nRef привязался к input-у
+  
   if(isStart){
     nRef.current.value=""
   }
@@ -48,7 +53,8 @@ useEffect(() => {
         <form onSubmit={onFormSubmit}>
             {/* поле ввода n */}
             <label htmlFor="phone" className="form-label">Введите номер телефона:</label>
-            <input type="tel" id="phone" required ref={nRef} className="form-control" placeholder="+X(XXX)XXX-XX-XX"/>
+            <input type="tel" id="phone" required ref={nRef}
+            className="form-control" placeholder="+X(XXX)XXX-XX-XX" style={styles}/>
             {/* кнопка отправки формы */}
             <button type="submit" className="btn btn-primary"> Проверить</button>
           </form>
